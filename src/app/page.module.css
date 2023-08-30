@@ -227,11 +227,3 @@
     transform: rotate(0deg);
   }
 }
-
-
-.cardContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 2rem 5rem 2rem 5rem
-}
