@@ -1,8 +1,9 @@
+import BookingForm from "@/components/BookingForm"
 
 export default function Booking() {
   return (
     <main>
-        <h1>Booking</h1>    
+        <BookingForm></BookingForm>
     </main>
   )
 }
