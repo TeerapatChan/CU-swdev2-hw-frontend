@@ -2,7 +2,7 @@
     display: block;
     padding: 5px;
     margin: 0;
-    height: 70vh;
+    height: 93vh;
     position: relative;
 }
 
@@ -12,6 +12,6 @@
     z-index: 1;
     text-align: center;
     color: white;
-    font-size: 4rem;
+    font-size: 6rem;
     -webkit-text-stroke: 2px black
 }

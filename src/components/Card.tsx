@@ -19,6 +19,7 @@ export default function Card({ hospitalName, imgSrc, rating, setRating }: { hosp
                 event.stopPropagation();
                 setRating(newValue || 0);
                 }}
+                onClick={(event) => event.stopPropagation()}
             />
             </div>
         </InteractiveCard>
