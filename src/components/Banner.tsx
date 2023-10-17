@@ -3,12 +3,14 @@ import Image from "next/image";
 import styles from "./banner.module.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import {useSession} from "next-auth/react";
 
 export default function Banner() {
     const BannerList = ["/img/banner.jpg", "/img/banner2.jpg", "/img/banner3.jpg","/img/banner4.jpg"]
-    const [showBanner, setShowBanner] = useState(0)
-    const router = useRouter()
-    
+    const [showBanner, setShowBanner] = useState(0);
+    const router = useRouter();
+    const session = useSession().data;
+
     return (
         <div className={`hover:cursor-pointer ${styles.banner}`} onClick={() => {setShowBanner(showBanner+1)}}>
             <Image
@@ -17,6 +19,11 @@ export default function Banner() {
                 layout="fill"
                 priority objectFit="cover"
             />
+            {
+                session ? <div className='z-1 absolute right-10 top-5 font-semibold text-white text-3xl p-3 
+                bg-gray-900 rounded-xl'>Hello {session.user?.name}</div> :
+                null
+            }
             <div className={styles.bannerText}>
                 <h1>Vaccine</h1>
                 <h3>Get vaccinated today!</h3>

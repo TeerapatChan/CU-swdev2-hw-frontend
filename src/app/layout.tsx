@@ -2,6 +2,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import MenuBar from '@/components/MenuBar'
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from './api/auth/[...nextauth]/route'
+import NextAuthProvider from '@/Providers/NextAuthProvider'
 
 const roboto = Roboto({
   weight: '400',
@@ -13,16 +16,18 @@ export const metadata: Metadata = {
   description: '',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default async function RootLayout({children}: {children: React.ReactNode}) {
+  
+  const session = await getServerSession(authOptions);
+
   return (
     <html lang="en">
-      <body className={roboto.className}>
-      <MenuBar></MenuBar>
-      {children}</body>
+        <body className={roboto.className}>
+            <NextAuthProvider session={session}>
+            <MenuBar></MenuBar>
+            {children}       
+            </NextAuthProvider>
+        </body>
     </html>
   )
 }
