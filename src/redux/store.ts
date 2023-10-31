@@ -1,11 +1,23 @@
 import  bookSlice  from './features/bookSlice';
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { useSelector, TypedUseSelectorHook } from "react-redux";
+import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist'
+
+const reducers = combineReducers({
+    bookSlice
+});
+
+const persistConfig = {
+    key: 'root',
+    storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
 
 export const store = configureStore({
-    reducer: {
-        bookSlice
-    },
+    reducer: { persistedReducer }
 });
 
 export type RootState = ReturnType<typeof store.getState>;

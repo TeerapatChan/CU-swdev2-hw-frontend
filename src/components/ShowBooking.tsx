@@ -6,7 +6,7 @@ import { cancelBooking } from "@/redux/features/bookSlice";
 
 export default function ShowBooking() {
   const dispatch = useDispatch<AppDispatch>();
-  const bookingItem = useAppSelector((state) => state.bookSlice.bookingItem);
+  const bookingItem = useAppSelector((state) => state.persistedReducer.bookSlice.bookingItem);
   if (!bookingItem) {
     return (
       <div className="font-bold text-2xl bg-slate-300 p-5 mt-10 rounded-lg w-1/3 text-center">
