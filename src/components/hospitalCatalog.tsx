@@ -10,7 +10,7 @@ export default async function HospitalCatalog({hospitalJSON}: {hospitalJSON: Obj
             <div className='flex flex-row flex-wrap mr-15 ml-15 mt-8 mb-8 justify-center gap-14'>
                 {
                 hospitals.data.map((hospital:Object) => (
-                    <Link href={`/hospital/${hospital.id}`} className='w-3/12'>
+                    <Link key={hospital.id} href={`/hospital/${hospital.id}`} className='w-3/12'>
                         <Card hospitalName={hospital.name} imgSrc={hospital.picture}/>
                     </Link>
                 ))
