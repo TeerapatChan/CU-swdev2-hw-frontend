@@ -3,6 +3,7 @@ export default function VideoPlayer({videoSrc, isPlaying} : {videoSrc:string, is
 
     const videoRef = useRef<HTMLVideoElement>(null);
     useEffect(() => {
+        if (videoRef.current === null) return;
         if (isPlaying) {
             videoRef.current?.play();
         }else{

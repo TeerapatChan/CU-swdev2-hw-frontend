@@ -19,6 +19,7 @@ export default async function MenuBar() {
         </div>
 
         <div className="justify-end flex-row flex gap-5">
+          <MenuItem title="Hospitals" pageRef="/hospital" />
           <MenuItem title="Booking" pageRef="/booking" />
           <Image src="/img/logo.png" width={40} height={40} alt="logo" />
         </div>
